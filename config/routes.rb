@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # これが無いと / が/tasks へルーティングされないっぽい
+  root to: "tasks#index"
+  
+  # テンプレ 
+  resources :tasks
+
+
 end
