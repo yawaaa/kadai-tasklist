@@ -1,10 +1,5 @@
 <h1>id: <%= @task.id %>のタスク内容を編集できます。</h1>
 
-<%= form_for(@task) do |f| %>
-<%= f.label :content, "タスク内容" %>
-<%= f.text_field :content %>
-
-<%= f.submit "タスク編集実行" %>
-<% end %>
+<%= render "form", task: @task %>
 
 <%= link_to "一覧にもどる", tasks_path %>

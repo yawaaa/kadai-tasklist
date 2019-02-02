@@ -3,6 +3,8 @@
 <p><%= @task.content %></p>
 <p>このタスクは<%= @task.created_at %>に作成されました。</p>
 
+<p>現在のステータス：<%= @task.status %></p>
+
 
 <%= link_to "一覧に戻る", tasks_path  %>
 <%= link_to "このタスクを編集する。", edit_task_path(@task)  %>
