@@ -9,8 +9,10 @@
     </div>
   <% end %>
   
+  <% choiceArray=["未", "済"] %>
+  
   <%= f.label :status, "ステータス"%>
-  <%= f.text_field :status %>
+  <%= f.select :status, choiceArray %>
   
   <%= f.label :content, "メッセージ"%>
   <%= f.text_field :content %>
