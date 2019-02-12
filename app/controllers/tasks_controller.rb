@@ -2,9 +2,14 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
-    # @tasks = Task.all.page(params:[:page])
-    # @tasks = Task.all.page(params:[:page]).param(10)
+    if logged_in?
+      # @tasks = Task.all
+      # @tasks = Task.all.page(params:[:page])
+      # @tasks = Task.all.page(params:[:page]).param(10)
+       @task = current_user.tasks.build #form_for用
+       @tasks = current_user.tasks.order("created_at ASC")
+       @user_name = current_user.name
+    end
   end
   
   def show
@@ -15,13 +20,13 @@ class TasksController < ApplicationController
   end
   
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save #ここでsaveしつつ条件文。
       flash[:success] = "タスクの作成に成功しました！"
-      redirect_to @task    #redirectはshowアクション実施
+      redirect_to root_url    #redirect_toはアクション実施
     else
       flash.now[:danger] = "タスクの作成に失敗しました..."
-      render :new          #renderはnewアクション実施しない
+      render "tasks/index"          #renderはアクション実施しない
     end
   end
   
