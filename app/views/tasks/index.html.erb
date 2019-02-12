@@ -1,56 +1,14 @@
 <% if logged_in? %>
-  <h2>  <%= current_user.name %> さんのタスク一覧</h2>
-
-
-      
-  <!--<div class="row">-->
-  <!--  <aside class="col-md-4">-->
-  <!--    %= form_for(@task) do |f| %>-->
-  <!--      <div class="form-group">-->
-  <!--        %= f.text_area :content, class: 'form-control', rows: 5 %>-->
-  <!--      </div>-->
-  <!--      %= f.submit '新規タスクの作成', class: 'btn btn-primary btn-block' %>-->
-        <!--%= link_to "新規タスクの追加", new_task_path, class: "btn btn-primary" %>-->
-  <!--    % end %>-->
-  <!--  </aside>-->
-  <!--  <div class="col-xs-8">-->
-  <!--    <%= render 'tasks/tasks', tasks: @tasks %>
-  <!--  </div>-->
-  <!--</div>-->
-      
-      
-      <!--% if @tasks.any? %>-->
-      <!--  <table class="table table-striped">-->
-      <!--    <thead>-->
-      <!--      <tr>-->
-      <!--        <th>id</th>-->
-      <!--        <th>ステータス</th>-->
-      <!--        <th>タスク</th>-->
-      <!--      </tr>-->
-      <!--    </thead>-->
-      <!--    <tbody>-->
-      <!--      % @tasks.each do |task| %>-->
-      <!--        <tr>-->
-      <!--          <td>%= link_to task.id, task %></td>-->
-      <!--          <td>%= task.status %></td>-->
-      <!--          <td>%= task.content %></td>-->
-      <!--        </tr>-->
-      <!--      % end %>-->
-      <!--    </tbody>-->
-      <!--  </table>-->
-      <!--  <div>-->
-          <!-- %= paginate @tasks %>-->
-      <!--  </div>-->
-      <!--% end %>-->
-
-    
+<div>
+  <h2>  <%= current_user.name %> さんのタスク一覧 <%= link_to "ユーザ情報", user_path(current_user), class: "btn btn-success " %>  </h2>
+  
+</div>
+  <%= render 'tasks/tasks', tasks: @tasks %>
 
 <% else  %>
-  <div class="row">
-    <aside class="col-md-4">
-      <%= link_to "ユーザ登録はこちら", signup_path, class: "btn btn-primary " %>
-    </aside>
-  </div>
+      <h2> ログインしてタスクを管理しましょう</h2>
+      <%= link_to "ユーザ登録", signup_path, class: "btn btn-success " %>  
+      <%= link_to "ログイン", login_path, class: "btn btn-primary " %> 
 <% end %>
 
 
