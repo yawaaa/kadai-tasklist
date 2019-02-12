@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
+  # get 'sessions/new'
 
-  get 'sessions/create'
+  # get 'sessions/create'
 
-  get 'sessions/destroy'
+  # get 'sessions/destroy'
 
   # get 'users/index'
 
@@ -18,12 +18,14 @@ Rails.application.routes.draw do
   root to: "tasks#index"
   
   #  URLを/signupにするためだけ
-  get "login", to: "session#new"
-  post "login", to: "session#new"
-  delete "logout", to: "sessios#new"
+  get "signup", to: "users#new"
 
 
-  get "signup", to: "user#new"
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#new"
+
+
 
   # テンプレ 
   # TASK CRUD操作用

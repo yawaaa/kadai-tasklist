@@ -1,0 +1,13 @@
+
+[1mFrom:[0m /home/ec2-user/environment/tasklist/app/views/tasks/index.html.erb @ line 4 ActionView::CompiledTemplates#_app_views_tasks_index_html_erb__3191716595879282607_69942447015260:
+
+    [1;34m1[0m: <h1>タスク一覧</h1>
+    [1;34m2[0m: <% binding.pry %>
+    [1;34m3[0m: 
+ => [1;34m4[0m: <% if logged_in? %>
+    [1;34m5[0m:   <p> ようこそ <% current_user.name %> さん</p>
+    [1;34m6[0m:       
+    [1;34m7[0m:       <% if @tasks.any? %>
+    [1;34m8[0m:         <table class="table table-striped">
+    [1;34m9[0m:           <thead>
+

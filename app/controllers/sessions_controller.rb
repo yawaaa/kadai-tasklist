@@ -1,8 +1,11 @@
 class SessionsController < ApplicationController
+  # binding.pry
   def new
   end
   
   def create
+  # binding.pry
+
     email = params[:session][:email].downcase
     password = params[:session][:password]
     if login(email, password)
